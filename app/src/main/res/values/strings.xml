@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">ReachMobiApp</string>
+    <string name="app_name">Overwatch League</string>
 
     <string name="detail_button">Stats</string>
     <string name="subscribe_button">Subscribe</string>
+    <string name="query_hint">For all teams type show all</string>
 </resources>

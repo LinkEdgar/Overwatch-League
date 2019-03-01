@@ -17,8 +17,9 @@
                 android:layout_height="@dimen/logo_height" />
 
             <TextView
-                android:layout_marginLeft="@dimen/horizontal_margin"
                 android:layout_alignTop="@+id/iv_team_logo"
+                android:layout_margin="@dimen/horizontal_margin"
+                android:layout_marginLeft="@dimen/horizontal_margin"
                 android:id="@+id/tv_team_name"
                 android:textStyle="bold"
                 android:textSize="@dimen/team_name"
@@ -27,14 +28,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <Button
-                android:layout_below="@+id/tv_team_name"
+
+            <CheckBox
+                android:layout_alignLeft="@+id/tv_team_name"
+                android:hint="@string/subscribe_button"
                 android:layout_toRightOf="@+id/iv_team_logo"
-                android:text="@string/subscribe_button"
-                android:id="@+id/bt_detail"
-                android:layout_margin="@dimen/horizontal_margin"
-                android:layout_width="@dimen/query_button_width"
-                android:layout_height="@dimen/query_button_height" />
+                android:layout_below="@+id/tv_team_name"
+                android:layout_alignParentRight="true"
+                android:id="@+id/cb_subscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
 
     </RelativeLayout>
 

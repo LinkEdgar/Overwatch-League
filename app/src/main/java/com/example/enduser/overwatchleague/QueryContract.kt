@@ -1,4 +1,4 @@
-package com.example.enduser.reachmobiapp
+package com.example.enduser.overwatchleague
 
 /**
  * Created by EndUser on 2/16/2019.
@@ -6,10 +6,12 @@ package com.example.enduser.reachmobiapp
 
 interface QueryContract{
     interface View{
-
+        fun updateUi(data: ArrayList<OverwatchTeam>)
+        fun updateUi(team: OverwatchTeam)
     }
 
     interface Presenter{
         fun onSubmitQuery(query: String)
+        fun startTeamLoad()
     }
 }
