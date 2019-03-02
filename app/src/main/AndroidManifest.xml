@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.enduser.reachmobiapp">
+    package="com.example.enduser.overwatchleague">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -19,6 +19,16 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.enduser.overwatchleague.QueryActivity"></activity>
+
+        <provider
+            android:exported="false"
+            android:authorities="com.example.enduser.overwatchleague"
+            android:name=".OverwatchTeamProvider"/>
+        <service
+            android:name=".UpdateTeamService"
+            android:exported="false"
+            />
+
     </application>
 
 </manifest>

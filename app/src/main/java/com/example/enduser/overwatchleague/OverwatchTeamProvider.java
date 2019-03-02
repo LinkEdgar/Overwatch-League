@@ -14,9 +14,11 @@ public class OverwatchTeamProvider extends ContentProvider{
 
     private OverwatchDBHelper mHelper;
     private static UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-    private final static int TEAM_QUERY = 1;
+    public final static int OV_TEAM = 1;
+    public final static int OV_TEAM_SPECIFIC = 2;
     static{
-        sUriMatcher.addURI(OverwatchDbContract.CONTENT_AUTHORITY, OverwatchDbContract.TEAM_DB_PATH, TEAM_QUERY );
+        sUriMatcher.addURI(OverwatchDbContract.CONTENT_AUTHORITY, OverwatchDbContract.TEAM_DB_PATH, OV_TEAM);
+        sUriMatcher.addURI(OverwatchDbContract.CONTENT_AUTHORITY, OverwatchDbContract.TEAM_DB_PATH+ "/*", OV_TEAM_SPECIFIC);
     }
 
     @Override
@@ -32,11 +34,11 @@ public class OverwatchTeamProvider extends ContentProvider{
         Cursor cursor = null;
         int match = sUriMatcher.match(uri);
         switch (match){
-            case TEAM_QUERY:
+            case OV_TEAM:
                 cursor = database.query(OverwatchDbContract.TeamEntry.TABLE_NAME, projection, selection, selectionArgs,
                         null,null, sortOrder);
                 break;
-              default: throw new IllegalArgumentException("Cannot Query Unknow Uri" + uri);
+              default: Log.e("UnknownUri", "--> "+ uri);
         }
         return cursor;
     }
@@ -50,6 +52,29 @@ public class OverwatchTeamProvider extends ContentProvider{
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+
+        /*
+        SQLiteDatabase database = mHelper.getWritableDatabase();
+        long newRowId = database.insert(OverwatchDbContract.TeamEntry.TABLE_NAME, null, contentValues);
+        if(newRowId == -1){
+            Log.e("Db insertion", "Failed to insert row for " + uri);
+            return null;
+        }
+        return uri;
+
+        */
+
+        final int match = sUriMatcher.match(uri);
+        switch (match){
+            case OV_TEAM:
+                return insertTeam(uri, contentValues);
+            default:
+                Log.e("Insertion is not valid ","-->"+ uri);
+        }
+        return uri;
+    }
+
+    private Uri insertTeam(Uri uri, ContentValues contentValues){
         SQLiteDatabase database = mHelper.getWritableDatabase();
         long newRowId = database.insert(OverwatchDbContract.TeamEntry.TABLE_NAME, null, contentValues);
         if(newRowId == -1){
@@ -60,8 +85,22 @@ public class OverwatchTeamProvider extends ContentProvider{
     }
 
     @Override
-    public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+        SQLiteDatabase database = mHelper.getWritableDatabase();
+        int count = 0;
+        switch(sUriMatcher.match(uri)){
+            case OV_TEAM_SPECIFIC:
+                String name = uri.getLastPathSegment();
+                Log.e("delete team", "--> "+name);
+                count = database.delete(OverwatchDbContract.TeamEntry.TABLE_NAME,
+                        OverwatchDbContract.TeamEntry.COLUMN_NAME_TEAM_NAME + " = " +name,
+                        null);
+                break;
+            default:
+                count = 0;
+                Log.e("Unknown URI: ","-->"+ uri);
+        }
+        return count;
     }
 
     @Override

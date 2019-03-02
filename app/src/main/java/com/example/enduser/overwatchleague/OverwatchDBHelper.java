@@ -23,6 +23,8 @@ public class OverwatchDBHelper extends SQLiteOpenHelper{
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_ICON + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_TEAM_NAME + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_YOUTUBE + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_PRIMARY_COLOR + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_SECONDARY_COLOR + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_INSTAGRAM + " TEXT)";
             sqLiteDatabase.execSQL(SQL_CREATE_FOOD_TABLE);
 
@@ -30,6 +32,7 @@ public class OverwatchDBHelper extends SQLiteOpenHelper{
 
         @Override
         public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + OverwatchDbContract.TeamEntry.TABLE_NAME);
+            onCreate(sqLiteDatabase);
         }
 }

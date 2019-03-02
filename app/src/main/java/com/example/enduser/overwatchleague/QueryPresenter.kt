@@ -1,7 +1,7 @@
 package com.example.enduser.overwatchleague
 
 import android.content.Context
-import android.support.annotation.MainThread
+import android.content.Intent
 import android.util.Log
 
 /**
@@ -50,6 +50,27 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View): QueryC
         mCacheData.clear()
         mCacheData.addAll(data)
         mView.updateUi(data)
+    }
+
+    override fun onSubCheckBoxClicked(position: Int, team: OverwatchTeam) {
+
+        val loadDbIntent = Intent(context, UpdateTeamService::class.java)
+        if(team.isSubbed){
+            //add to db
+            loadDbIntent.action = insert_db_action
+            loadDbIntent.putExtra(parcelableTeam, team)
+        }else{
+            //delete from db
+            val query = "'"+ team.teamName + "'"
+            loadDbIntent.putExtra(delete_db_entry, query)
+        }
+        context.startService(loadDbIntent)
+    }
+
+    companion object {
+        val delete_db_entry = "delete"
+        val insert_db_action = "insert"
+        val parcelableTeam = "overwatch_team"
     }
 
 }

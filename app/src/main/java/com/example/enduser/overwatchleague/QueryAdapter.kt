@@ -10,7 +10,6 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.example.enduser.reachmobiapp.R
 
 class QueryAdapter(var context:Context, var data:ArrayList<OverwatchTeam>, var callBack: TeamUpdateCallback): RecyclerView.Adapter<QueryAdapter.QueryViewHolder>(){
 
@@ -35,7 +34,7 @@ class QueryAdapter(var context:Context, var data:ArrayList<OverwatchTeam>, var c
         }catch(a: IllegalArgumentException){
             a.printStackTrace()
         }
-        Glide.with(holder.mTeamLogo).load(team.teamLogo).into(holder.mTeamLogo)
+        Glide.with(holder.mTeamLogo).load(team.teamIcon).into(holder.mTeamLogo)
         holder.mTeamSub.isChecked = team.isSubbed
         holder.mTeamSub.setOnClickListener{
             team.isSubbed = !team.isSubbed

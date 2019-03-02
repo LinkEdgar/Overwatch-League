@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
 import android.util.Log
-import com.example.enduser.reachmobiapp.R
 import kotlinx.android.synthetic.main.activity_query.*
 
 class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQueryTextListener, QueryAdapter.TeamUpdateCallback{
@@ -64,7 +63,6 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
         return false
     }
 
-
     override fun updateUi(team: OverwatchTeam) {
         mData.clear()
         mData.add(team)
@@ -74,5 +72,6 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
     override fun updateTeam(position: Int, team: OverwatchTeam) {
         mData.set(position, team)
         mQueryAdapter.notifyItemChanged(position)
+        mPresenter.onSubCheckBoxClicked(position, team)
     }
 }

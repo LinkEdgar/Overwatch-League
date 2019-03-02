@@ -13,5 +13,6 @@ interface QueryContract{
     interface Presenter{
         fun onSubmitQuery(query: String)
         fun startTeamLoad()
+        fun onSubCheckBoxClicked(position: Int, team: OverwatchTeam)
     }
 }

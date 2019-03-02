@@ -26,6 +26,9 @@ public class OverwatchDbContract {
         public static final String COLUMN_NAME_FACEBOOK = "facebook";
         public static final String COLUMN_NAME_YOUTUBE = "youtube";
         public static final String COLUMN_NAME_ICON = "icon";
+        public static final String COLUMN_NAME_PRIMARY_COLOR = "primary_color";
+        public static final String COLUMN_NAME_SECONDARY_COLOR = "secondary_color";
+
     }
 
 }
