@@ -58,6 +58,7 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View): QueryC
         if(team.isSubbed){
             //add to db
             loadDbIntent.action = insert_db_action
+            Log.e("team to upload", "name --> ${team.teamName} , icon --> ${team.teamIcon} , primaryColor --> ${team.teamPrimaryColor}")
             loadDbIntent.putExtra(parcelableTeam, team)
         }else{
             //delete from db

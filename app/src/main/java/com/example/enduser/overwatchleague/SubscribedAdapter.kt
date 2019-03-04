@@ -1,6 +1,7 @@
 package com.example.enduser.overwatchleague
 
 import android.content.Context
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,12 @@ class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>
         val team = mData[position]
         holder.mTeamName.text = team.teamName
         Glide.with(holder.mTeamImage).load(team.teamIcon).into(holder.mTeamImage)
+        try{
+            holder.mTeamName.setTextColor(Color.parseColor(team.teamPrimaryColor))
+            //holder.mTeamSub.setHintTextColor(Color.parseColor(team.teamSecondaryColor))
+        }catch(a: IllegalArgumentException){
+            a.printStackTrace()
+        }
     }
 
     class SubscribeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

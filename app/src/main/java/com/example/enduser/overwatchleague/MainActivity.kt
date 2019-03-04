@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
 
     //TODO delete this test
     private fun testQuery(){
+        //todo change projection
         val PROJECTION = arrayOf<String>(OverwatchDbContract.TeamEntry.COLUMN_NAME_TEAM_NAME, OverwatchDbContract.TeamEntry.COLUMN_NAME_ICON )
 
         val cursor =contentResolver.query(OverwatchDbContract.CONTENT_URI, PROJECTION, null, null, null)
