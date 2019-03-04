@@ -32,6 +32,7 @@ public class OverwatchTeamProvider extends ContentProvider{
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         SQLiteDatabase database = mHelper.getReadableDatabase();
         Cursor cursor = null;
+        Log.e("uri to query", "--> " + uri);
         int match = sUriMatcher.match(uri);
         switch (match){
             case OV_TEAM:
@@ -52,18 +53,6 @@ public class OverwatchTeamProvider extends ContentProvider{
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-
-        /*
-        SQLiteDatabase database = mHelper.getWritableDatabase();
-        long newRowId = database.insert(OverwatchDbContract.TeamEntry.TABLE_NAME, null, contentValues);
-        if(newRowId == -1){
-            Log.e("Db insertion", "Failed to insert row for " + uri);
-            return null;
-        }
-        return uri;
-
-        */
-
         final int match = sUriMatcher.match(uri);
         switch (match){
             case OV_TEAM:
