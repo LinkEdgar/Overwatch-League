@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
     override fun onResume() {
         super.onResume()
         testQuery()
+        mPresenter.loadSubcribedContentFromDb()
     }
 
     private fun initUi(){

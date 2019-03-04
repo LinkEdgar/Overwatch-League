@@ -7,6 +7,6 @@ interface SubscribeContract{
     }
 
     interface Presenter{
-        //fun loadSubcribedContentFromDb()
+        fun loadSubcribedContentFromDb()
     }
 }
