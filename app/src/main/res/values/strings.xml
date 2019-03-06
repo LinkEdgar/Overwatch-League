@@ -13,4 +13,6 @@
     <string name="game_loss">Game losses:</string>
     <string name="game_tie">Game draws:</string>
 
+    <string name="no_team_sub_messages">Please search for teams to subscribe to</string>
+
 </resources>

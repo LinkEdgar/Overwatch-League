@@ -8,6 +8,7 @@ interface QueryContract{
     interface View{
         fun updateUi(data: ArrayList<OverwatchTeam>)
         fun updateUi(team: OverwatchTeam)
+        fun setProgressBar()
     }
 
     interface Presenter{

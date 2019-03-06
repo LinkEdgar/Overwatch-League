@@ -8,6 +8,7 @@ import android.os.Looper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SubscribeContract.View {
@@ -30,14 +31,16 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
 
     override fun onResume() {
         super.onResume()
+        //mPresenter.loadSubcribedContentFromDb()
+    }
+
+    override fun onStart() {
+        super.onStart()
         mPresenter.loadSubcribedContentFromDb()
     }
 
     private fun initUi(){
-        switchButton.setOnClickListener{
-            val switch = Intent(this, QueryActivity::class.java)
-            startActivity(switch)
-        }
+        switchButton.setOnClickListener{switchActivity()}
         mRecyclerView = rv_user_subs
         mData = ArrayList()
         mSubscribedAdapter = SubscribedAdapter(this,mData)
@@ -47,7 +50,7 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
         mTeamHashSet = HashSet()
     }
 
-    override fun updateUi(data: ArrayList<OverwatchTeam>) {
+    override fun updateUi(data: ArrayList<OverwatchTeam>, set: HashSet<String>) {
         var mainHandler = Handler(Looper.getMainLooper())
 
         var myRunnable =
@@ -55,8 +58,26 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
                     mData.clear()
                     mData.addAll(data)
                     mSubscribedAdapter.notifyDataSetChanged()
+                    mTeamHashSet.clear()
+                    mTeamHashSet.addAll(set)
                 }
         mainHandler.post(myRunnable)
+    }
+
+    override fun setSubscriberMessage() {
+        var mainHandler = Handler(Looper.getMainLooper())
+
+        var myRunnable =
+                Runnable {
+                    tv_no_subs.visibility = View.VISIBLE
+                }
+        mainHandler.post(myRunnable)
+    }
+
+    private fun switchActivity(){
+        val switch = Intent(this, QueryActivity::class.java)
+        switch.putExtra("set",mTeamHashSet)
+        startActivity(switch)
     }
 
 }

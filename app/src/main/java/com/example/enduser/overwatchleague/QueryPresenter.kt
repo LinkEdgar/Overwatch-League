@@ -8,16 +8,23 @@ import android.util.Log
  * Created by EndUser on 2/16/2019.
  */
 
-class QueryPresenter(var context:Context, var mView: QueryContract.View): QueryContract.Presenter, ApiDataRetriever.RepositoryCallback {
+class QueryPresenter(var context:Context, var mView: QueryContract.View, var intent: Intent): QueryContract.Presenter, ApiDataRetriever.RepositoryCallback {
 
     private lateinit var mRepo: ApiDataRetriever
     private  var mCacheData: ArrayList<OverwatchTeam> = ArrayList()
+    private lateinit var mTeamHashSet: HashSet<String>
 
     init {
+        getDataFromIntent()
         startTeamLoad()
     }
 
+    private fun getDataFromIntent() {
+        mTeamHashSet = intent.getSerializableExtra("set") as HashSet<String>
+    }
+
     override fun startTeamLoad() {
+        mView.setProgressBar()
         mRepo = ApiDataRetriever(this)
         mRepo.requestApiData()
     }
@@ -47,7 +54,17 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View): QueryC
     override fun onDataRetrieved(data: ArrayList<OverwatchTeam>) {
         mCacheData.clear()
         mCacheData.addAll(data)
+        checkDataForSubscribedContent(mCacheData)
         mView.updateUi(data)
+        mView.setProgressBar()
+    }
+
+    private fun checkDataForSubscribedContent(mCacheData: ArrayList<OverwatchTeam>) {
+        for(x in mCacheData){
+            if(mTeamHashSet.contains(x.teamName)){
+                x.isSubbed = true
+            }
+        }
     }
 
     override fun onSubCheckBoxClicked(position: Int, team: OverwatchTeam) {

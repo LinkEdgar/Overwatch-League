@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
 import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_query.*
 
 class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQueryTextListener, QueryAdapter.TeamUpdateCallback{
@@ -26,7 +27,7 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
         setContentView(R.layout.activity_query)
 
         initUi()
-        mPresenter = QueryPresenter(this,this)
+        mPresenter = QueryPresenter(this,this, intent)
     }
 
     private fun initUi(){
@@ -74,4 +75,19 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
         mQueryAdapter.notifyItemChanged(position)
         mPresenter.onSubCheckBoxClicked(position, team)
     }
+
+    override fun setProgressBar() {
+        var mainHandler = Handler(Looper.getMainLooper())
+
+        var myRunnable =
+                Runnable {
+                    if(progressBar.visibility == View.GONE){
+                        progressBar.visibility = View.VISIBLE
+                    }else{
+                        progressBar.visibility = View.GONE
+                    }
+                }
+        mainHandler.post(myRunnable)
+    }
+
 }
