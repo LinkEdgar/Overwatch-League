@@ -43,12 +43,15 @@ class SubscribePresenter(var context: Context, var mView: SubscribeContract.View
                     OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_DRAW)
             val cursor = context.contentResolver.query(OverwatchDbContract.CONTENT_URI, projection, null, null, null)
             cursor.moveToFirst()
+            mData.clear() //clears any data from previous loads
+            mTeamHashSet.clear() //clears hash of temas from previous loads
             while(cursor.moveToNext()){
                 extractDataFromCursor(cursor)
             }
             if(mData.isEmpty()){
-                mView.setSubscriberMessage()
-            }
+                mView.setSubscriberMessage(true)
+            }else
+                mView.setSubscriberMessage(false)
             mView.updateUi(mData, mTeamHashSet)
         }
     }

@@ -24,14 +24,10 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.e("lifecycle", "onCreate")
 
         initUi()
         mPresenter = SubscribePresenter(this, this)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //mPresenter.loadSubcribedContentFromDb()
     }
 
     override fun onStart() {
@@ -64,12 +60,16 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
         mainHandler.post(myRunnable)
     }
 
-    override fun setSubscriberMessage() {
+    override fun setSubscriberMessage(boolean: Boolean) {
         var mainHandler = Handler(Looper.getMainLooper())
 
         var myRunnable =
                 Runnable {
-                    tv_no_subs.visibility = View.VISIBLE
+                    if(boolean == true){
+                        tv_no_subs.visibility = View.VISIBLE
+                    }else{
+                        tv_no_subs.visibility = View.GONE
+                    }
                 }
         mainHandler.post(myRunnable)
     }

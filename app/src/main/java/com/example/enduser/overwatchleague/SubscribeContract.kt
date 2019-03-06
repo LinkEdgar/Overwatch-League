@@ -4,7 +4,7 @@ interface SubscribeContract{
 
     interface View{
         fun updateUi(data: ArrayList<OverwatchTeam>, set: HashSet<String>)
-        fun setSubscriberMessage()
+        fun setSubscriberMessage(boolean: Boolean)
     }
 
     interface Presenter{
