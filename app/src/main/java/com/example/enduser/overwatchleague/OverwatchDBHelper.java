@@ -25,7 +25,12 @@ public class OverwatchDBHelper extends SQLiteOpenHelper{
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_YOUTUBE + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_PRIMARY_COLOR + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_SECONDARY_COLOR + " TEXT," +
-                            OverwatchDbContract.TeamEntry.COLUMN_NAME_INSTAGRAM + " TEXT)";
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_WIN + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_LOSS + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_DRAW + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_GAME_WIN + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_GAME_LOSS + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_GAME_TIE + " TEXT)";
             sqLiteDatabase.execSQL(SQL_CREATE_FOOD_TABLE);
 
         }

@@ -3,13 +3,23 @@ package com.example.enduser.overwatchleague
 import android.os.Parcel
 import android.os.Parcelable
 
-class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var teamPrimaryColor: String? = null, var teamSecondaryColor: String? = null, var isSubbed: Boolean = false): Parcelable{
+data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var teamPrimaryColor: String? = null, var teamSecondaryColor: String? = null, var isSubbed: Boolean = false,
+                    var teamId:String? = null, var matchWin: String? = null, var matchLoss:String? = null, var matchDraw:String? = null, var gameWin:String? = null
+                    , var gameLoss:String? = null, var gameTie:String? = null): Parcelable{
+
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readByte() != 0.toByte()) {
+            parcel.readByte() != 0.toByte(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -18,6 +28,13 @@ class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var team
         parcel.writeString(teamPrimaryColor)
         parcel.writeString(teamSecondaryColor)
         parcel.writeByte(if (isSubbed) 1 else 0)
+        parcel.writeString(teamId)
+        parcel.writeString(matchWin)
+        parcel.writeString(matchLoss)
+        parcel.writeString(matchDraw)
+        parcel.writeString(gameWin)
+        parcel.writeString(gameLoss)
+        parcel.writeString(gameTie)
     }
 
     override fun describeContents(): Int {

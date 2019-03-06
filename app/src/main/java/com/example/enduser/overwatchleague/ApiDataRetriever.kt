@@ -51,7 +51,9 @@ class ApiDataRetriever(var mCallback: RepositoryCallback): Callback{
         val teamImage = childJson.get("logo").toString()
         val teamPrimaryColor = "#"+childJson.get("primaryColor").toString()
         val teamSecondaryColor = "#"+childJson.get("secondaryColor").toString()
+        val teamId = childJson.get("id").toString()
         val overwatchTeam = OverwatchTeam(teamName, teamImage, teamPrimaryColor, teamSecondaryColor)
+        overwatchTeam.teamId = teamId
         mData.add(overwatchTeam)
     }
 

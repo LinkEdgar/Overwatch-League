@@ -29,11 +29,16 @@ class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>
         }catch(a: IllegalArgumentException){
             a.printStackTrace()
         }
+        holder.mTeamWins.text = team.matchWin
+        holder.mTeamLoss.text = team.matchLoss
+        holder.mTeamDraw.text = team.matchDraw
     }
 
     class SubscribeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val mTeamName: TextView = itemView.findViewById(R.id.tv_team_name)
         val mTeamImage: ImageView = itemView.findViewById(R.id.iv_team_image)
-        val mTeamWins: TextView = itemView.findViewById(R.id.tv_team_wins)
+        val mTeamWins: TextView = itemView.findViewById(R.id.tv_team_win)
+        val mTeamLoss: TextView = itemView.findViewById(R.id.tv_team_loss)
+        val mTeamDraw: TextView = itemView.findViewById(R.id.tv_team_draw)
     }
 }

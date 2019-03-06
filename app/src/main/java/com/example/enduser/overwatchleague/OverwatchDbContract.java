@@ -28,7 +28,12 @@ public class OverwatchDbContract {
         public static final String COLUMN_NAME_ICON = "icon";
         public static final String COLUMN_NAME_PRIMARY_COLOR = "primary_color";
         public static final String COLUMN_NAME_SECONDARY_COLOR = "secondary_color";
-
+        public static final String COLUMN_NAME_MATCH_WIN = "matchWin";
+        public static final String COLUMN_NAME_MATCH_LOSS = "matchLoss";
+        public static final String COLUMN_NAME_MATCH_DRAW = "matchDraw";
+        public static final String COLUMN_NAME_GAME_WIN = "gameWin";
+        public static final String COLUMN_NAME_GAME_LOSS = "gameLoss";
+        public static final String COLUMN_NAME_GAME_TIE = "gameTie";
     }
 
 }

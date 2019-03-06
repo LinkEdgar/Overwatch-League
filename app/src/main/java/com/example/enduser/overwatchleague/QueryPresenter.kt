@@ -23,8 +23,6 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View): QueryC
     }
 
     override fun onSubmitQuery(query: String) {
-
-
         if(query.toLowerCase() == "show all")
             mView.updateUi(mCacheData)
         else{
@@ -53,15 +51,15 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View): QueryC
     }
 
     override fun onSubCheckBoxClicked(position: Int, team: OverwatchTeam) {
-
         val loadDbIntent = Intent(context, UpdateTeamService::class.java)
         if(team.isSubbed){
             //add to db
             loadDbIntent.action = insert_db_action
-            Log.e("team to upload", "name --> ${team.teamName} , icon --> ${team.teamIcon} , primaryColor --> ${team.teamPrimaryColor}")
             loadDbIntent.putExtra(parcelableTeam, team)
         }else{
             //delete from db
+            team.isSubbed = false
+            loadDbIntent.action = delete_db_entry
             val query = "'"+ team.teamName + "'"
             loadDbIntent.putExtra(delete_db_entry, query)
         }

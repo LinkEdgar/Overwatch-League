@@ -32,7 +32,6 @@ public class OverwatchTeamProvider extends ContentProvider{
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         SQLiteDatabase database = mHelper.getReadableDatabase();
         Cursor cursor = null;
-        Log.e("uri to query", "--> " + uri);
         int match = sUriMatcher.match(uri);
         switch (match){
             case OV_TEAM:
@@ -80,7 +79,6 @@ public class OverwatchTeamProvider extends ContentProvider{
         switch(sUriMatcher.match(uri)){
             case OV_TEAM_SPECIFIC:
                 String name = uri.getLastPathSegment();
-                Log.e("delete team", "--> "+name);
                 count = database.delete(OverwatchDbContract.TeamEntry.TABLE_NAME,
                         OverwatchDbContract.TeamEntry.COLUMN_NAME_TEAM_NAME + " = " +name,
                         null);

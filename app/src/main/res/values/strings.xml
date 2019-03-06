@@ -4,4 +4,13 @@
     <string name="detail_button">Stats</string>
     <string name="subscribe_button">Subscribe</string>
     <string name="query_hint">For all teams type show all</string>
+
+    <string name="match_wins">Match wins:</string>
+    <string name="match_loss">Match Losses:</string>
+    <string name="match_draw">Match Draws:</string>
+
+    <string name="game_wins">Game wins:</string>
+    <string name="game_loss">Game losses:</string>
+    <string name="game_tie">Game draws:</string>
+
 </resources>
