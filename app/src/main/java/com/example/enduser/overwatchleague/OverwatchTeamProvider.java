@@ -52,6 +52,7 @@ public class OverwatchTeamProvider extends ContentProvider{
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        Log.e("uri --->", " "+ uri);
         final int match = sUriMatcher.match(uri);
         switch (match){
             case OV_TEAM:

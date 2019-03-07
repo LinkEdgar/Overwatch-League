@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.e("lifecycle", "onCreate")
-
         initUi()
         mPresenter = SubscribePresenter(this, this)
     }

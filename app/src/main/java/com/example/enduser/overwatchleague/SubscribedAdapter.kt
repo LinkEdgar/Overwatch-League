@@ -32,6 +32,10 @@ class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>
         holder.mTeamWins.text = team.matchWin
         holder.mTeamLoss.text = team.matchLoss
         holder.mTeamDraw.text = team.matchDraw
+        holder.mTeamGameWin.text = team.gameWin
+        holder.mTeamGameLoss.text = team.gameLoss
+        holder.mTeamGameTie.text = team.gameTie
+
     }
 
     class SubscribeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -40,5 +44,8 @@ class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>
         val mTeamWins: TextView = itemView.findViewById(R.id.tv_team_win)
         val mTeamLoss: TextView = itemView.findViewById(R.id.tv_team_loss)
         val mTeamDraw: TextView = itemView.findViewById(R.id.tv_team_draw)
+        val mTeamGameWin: TextView = itemView.findViewById(R.id.tv_game_wins)
+        val mTeamGameLoss: TextView = itemView.findViewById(R.id.tv_game_loss)
+        val mTeamGameTie: TextView = itemView.findViewById(R.id.tv_game_tie)
     }
 }
