@@ -1,6 +1,5 @@
 package com.example.enduser.overwatchleague
 
-import android.support.annotation.MainThread
 import android.util.Log
 import okhttp3.*
 import org.json.JSONArray

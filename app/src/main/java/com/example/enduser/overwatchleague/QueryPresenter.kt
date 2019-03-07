@@ -84,9 +84,9 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View, var int
     }
 
     companion object {
-        val delete_db_entry = "delete"
-        val insert_db_action = "insert"
-        val parcelableTeam = "overwatch_team"
+        const val delete_db_entry = "delete"
+        const val insert_db_action = "insert"
+        const val parcelableTeam = "overwatch_team"
     }
 
 }

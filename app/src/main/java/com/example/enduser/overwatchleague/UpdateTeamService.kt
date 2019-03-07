@@ -3,12 +3,6 @@ package com.example.enduser.overwatchleague
 import android.app.IntentService
 import android.content.ContentValues
 import android.content.Intent
-import android.util.Log
-import android.view.View
-import okhttp3.*
-import org.json.JSONException
-import org.json.JSONObject
-import java.io.IOException
 
 
 class UpdateTeamService: IntentService("UpdateDb"), DetailDataRetriever.OnResponseCallback{
@@ -47,8 +41,8 @@ class UpdateTeamService: IntentService("UpdateDb"), DetailDataRetriever.OnRespon
     }
 
     companion object {
-        val insert_team_action = "insert"
-        val delete_team_action = "delete"
+        const val insert_team_action = "insert"
+        const val delete_team_action = "delete"
     }
 
     override fun onDataLoad(team: OverwatchTeam) {

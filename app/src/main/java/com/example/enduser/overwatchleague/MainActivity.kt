@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
 
     override fun onStart() {
         super.onStart()
-        mPresenter.loadSubcribedContentFromDb()
+        mPresenter.loadSubscribedContentFromDb()
     }
 
     private fun initUi(){

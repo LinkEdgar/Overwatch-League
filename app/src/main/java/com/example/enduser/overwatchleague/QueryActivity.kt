@@ -18,7 +18,7 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
     private lateinit var mLayoutManager: LinearLayoutManager
     private lateinit var mData: ArrayList<OverwatchTeam>
 
-    private lateinit var mSearchView: SearchView;
+    private lateinit var mSearchView: SearchView
 
     private lateinit var mPresenter: QueryPresenter
 

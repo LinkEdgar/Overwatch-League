@@ -19,8 +19,7 @@ data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readString()) {
-    }
+            parcel.readString())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(teamName)

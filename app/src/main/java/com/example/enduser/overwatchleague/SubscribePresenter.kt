@@ -39,9 +39,9 @@ class SubscribePresenter(var context: Context, var mView: SubscribeContract.View
         mTeamHashSet.add(name)
     }
 
-    override fun loadSubcribedContentFromDb() {
+    override fun loadSubscribedContentFromDb() {
         doAsync {
-            val projection = arrayOf<String>(
+            val projection = arrayOf(
                     OverwatchDbContract.TeamEntry.COLUMN_NAME_TEAM_NAME,
                     OverwatchDbContract.TeamEntry.COLUMN_NAME_ICON,
                     OverwatchDbContract.TeamEntry.COLUMN_NAME_PRIMARY_COLOR,

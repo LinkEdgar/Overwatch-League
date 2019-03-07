@@ -23,17 +23,17 @@ class DetailDataRetriever(var callback: OnResponseCallback, var team: OverwatchT
 
 
     override fun onResponse(call: Call, response: Response) {
-        val json = JSONObject(response?.body()?.string())
+        val json = JSONObject(response.body()?.string())
 
         try {
             //error
-            val yeetz = json.getJSONObject("ranking")
-            val matchWin = yeetz.getString("matchWin")
-            val matchLoss = yeetz.getString("matchLoss")
-            val matchDraw = yeetz.getString("matchDraw")
-            val gameWin = yeetz.getString("gameWin")
-            val gameLoss = yeetz.getString("gameLoss")
-            val gameTie = yeetz.getString("gameTie")
+            val rankings = json.getJSONObject("ranking")
+            val matchWin = rankings.getString("matchWin")
+            val matchLoss = rankings.getString("matchLoss")
+            val matchDraw = rankings.getString("matchDraw")
+            val gameWin = rankings.getString("gameWin")
+            val gameLoss = rankings.getString("gameLoss")
+            val gameTie = rankings.getString("gameTie")
             team.matchWin = matchWin
             team.matchDraw = matchDraw
             team.matchLoss = matchLoss
