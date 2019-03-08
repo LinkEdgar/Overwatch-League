@@ -9,7 +9,7 @@ import org.jetbrains.anko.doAsync
 class SubscribePresenter(var context: Context, var mView: SubscribeContract.View): SubscribeContract.Presenter{
 
     /*
-    TODO -- bug where the first subscription doesn't show up properly 
+    TODO -- bug where the first subscription doesn't show up properly
      */
 
     private var mData = ArrayList<OverwatchTeam>()

@@ -86,6 +86,10 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View, var int
         context.startService(loadDbIntent)
     }
 
+    override fun onClearSearch() {
+        mView.updateUi(mCacheData)
+    }
+
     companion object {
         const val delete_db_entry = "delete"
         const val insert_db_action = "insert"

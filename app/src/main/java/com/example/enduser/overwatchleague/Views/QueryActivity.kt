@@ -7,7 +7,9 @@ import android.os.Looper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.enduser.overwatchleague.*
 import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
 import com.example.enduser.overwatchleague.Presenter.QueryContract
@@ -64,7 +66,10 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        return false
+        if(newText == ""){
+            mPresenter.onClearSearch()
+        }
+        return true
     }
 
     override fun updateUi(team: OverwatchTeam) {

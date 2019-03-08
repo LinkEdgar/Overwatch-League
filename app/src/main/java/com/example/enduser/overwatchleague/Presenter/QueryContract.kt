@@ -17,5 +17,6 @@ interface QueryContract{
         fun onSubmitQuery(query: String)
         fun startTeamLoad()
         fun onSubCheckBoxClicked(position: Int, team: OverwatchTeam)
+        fun onClearSearch()
     }
 }

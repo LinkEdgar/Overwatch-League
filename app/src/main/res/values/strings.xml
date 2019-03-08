@@ -3,7 +3,7 @@
 
     <string name="detail_button">Stats</string>
     <string name="subscribe_button">Subscribe</string>
-    <string name="query_hint">For all teams type show all</string>
+    <string name="query_hint">Search for teams</string>
 
     <string name="match_wins">Match wins:</string>
     <string name="match_loss">Match Losses:</string>
