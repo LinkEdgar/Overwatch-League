@@ -11,21 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.enduser.overwatchleague.MainActivity">
+        <activity android:name="com.example.enduser.overwatchleague.Views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.enduser.overwatchleague.QueryActivity"></activity>
+        <activity android:name="com.example.enduser.overwatchleague.Views.QueryActivity"></activity>
 
         <provider
             android:exported="false"
             android:authorities="com.example.enduser.overwatchleague"
-            android:name=".OverwatchTeamProvider"/>
+            android:name=".Database.OverwatchTeamProvider"/>
         <service
-            android:name=".UpdateTeamService"
+            android:name=".Services.UpdateTeamService"
             android:exported="false"
             />
 

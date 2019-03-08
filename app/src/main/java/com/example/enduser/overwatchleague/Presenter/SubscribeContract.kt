@@ -1,4 +1,6 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Presenter
+
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
 
 interface SubscribeContract{
 

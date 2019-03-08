@@ -1,4 +1,4 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Views
 
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +9,11 @@ import android.os.Looper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.example.enduser.overwatchleague.*
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
+import com.example.enduser.overwatchleague.Presenter.SubscribeContract
+import com.example.enduser.overwatchleague.Presenter.SubscribePresenter
+import com.example.enduser.overwatchleague.Views.Adapters.SubscribedAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SubscribeContract.View, SubscribedAdapter.OnClickCallback {
@@ -37,7 +42,7 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View, SubscribedAdap
         switchButton.setOnClickListener{switchActivity()}
         mRecyclerView = rv_user_subs
         mData = ArrayList()
-        mSubscribedAdapter = SubscribedAdapter(this,mData, this)
+        mSubscribedAdapter = SubscribedAdapter(this, mData, this)
         mLayoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = mSubscribedAdapter
         mRecyclerView.layoutManager = mLayoutManager

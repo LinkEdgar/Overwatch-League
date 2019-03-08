@@ -1,6 +1,7 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.ApiData
 
 import android.util.Log
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
 import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject

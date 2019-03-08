@@ -1,4 +1,4 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Views
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,11 +7,15 @@ import android.os.Looper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.View
+import com.example.enduser.overwatchleague.*
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
+import com.example.enduser.overwatchleague.Presenter.QueryContract
+import com.example.enduser.overwatchleague.Presenter.QueryPresenter
+import com.example.enduser.overwatchleague.Views.Adapters.QueryAdapter
 import kotlinx.android.synthetic.main.activity_query.*
 
-class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQueryTextListener, QueryAdapter.TeamUpdateCallback{
+class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQueryTextListener, QueryAdapter.TeamUpdateCallback {
 
     private lateinit var mRecyclerView:RecyclerView
     private lateinit var mQueryAdapter: QueryAdapter
@@ -27,7 +31,7 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
         setContentView(R.layout.activity_query)
 
         initUi()
-        mPresenter = QueryPresenter(this,this, intent)
+        mPresenter = QueryPresenter(this, this, intent)
     }
 
     private fun initUi(){

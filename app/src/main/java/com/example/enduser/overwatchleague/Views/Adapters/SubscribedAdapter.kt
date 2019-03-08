@@ -1,4 +1,4 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Views.Adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
+import com.example.enduser.overwatchleague.R
 
-class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>, var mCallback: OnClickCallback): RecyclerView.Adapter<SubscribedAdapter.SubscribeViewHolder>(){
+class SubscribedAdapter(var context: Context, var mData: ArrayList<OverwatchTeam>, var mCallback: OnClickCallback): RecyclerView.Adapter<SubscribedAdapter.SubscribeViewHolder>(){
 
     interface OnClickCallback{
         fun onClick(url: String?)

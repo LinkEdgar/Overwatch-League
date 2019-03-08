@@ -1,8 +1,11 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Services
 
 import android.app.IntentService
 import android.content.ContentValues
 import android.content.Intent
+import com.example.enduser.overwatchleague.ApiData.DetailDataRetriever
+import com.example.enduser.overwatchleague.Database.OverwatchDbContract
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
 
 
 class UpdateTeamService: IntentService("UpdateDb"), DetailDataRetriever.OnResponseCallback{
@@ -40,7 +43,7 @@ class UpdateTeamService: IntentService("UpdateDb"), DetailDataRetriever.OnRespon
 
     private fun addTeamToDb(intent: Intent){
         val team = intent.getParcelableExtra<OverwatchTeam>("overwatch_team")
-        val detailDataRetriever = DetailDataRetriever(this,team) //gets additional team data
+        val detailDataRetriever = DetailDataRetriever(this, team) //gets additional team data
         detailDataRetriever.retrieveDetailData(team.teamId.toString())
     }
 

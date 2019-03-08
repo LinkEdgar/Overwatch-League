@@ -1,4 +1,4 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Views.Adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -10,6 +10,8 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
+import com.example.enduser.overwatchleague.R
 
 class QueryAdapter(var context:Context, var data:ArrayList<OverwatchTeam>, var callBack: TeamUpdateCallback): RecyclerView.Adapter<QueryAdapter.QueryViewHolder>(){
 

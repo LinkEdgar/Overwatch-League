@@ -1,7 +1,9 @@
-package com.example.enduser.overwatchleague
+package com.example.enduser.overwatchleague.Presenter
 
 import android.content.Context
 import android.database.Cursor
+import com.example.enduser.overwatchleague.Database.OverwatchDbContract
+import com.example.enduser.overwatchleague.POJOs.OverwatchTeam
 import org.jetbrains.anko.doAsync
 
 class SubscribePresenter(var context: Context, var mView: SubscribeContract.View): SubscribeContract.Presenter{
@@ -28,7 +30,7 @@ class SubscribePresenter(var context: Context, var mView: SubscribeContract.View
         val accountYoutube = cursor.getString(12)
         val accountTwitter = cursor.getString(13)
 
-        val team = OverwatchTeam(name,logo, colorPrimary, colorSecondary)
+        val team = OverwatchTeam(name, logo, colorPrimary, colorSecondary)
         team.matchWin = matchWins
         team.matchLoss = matchLoss
         team.matchDraw = matchDraw

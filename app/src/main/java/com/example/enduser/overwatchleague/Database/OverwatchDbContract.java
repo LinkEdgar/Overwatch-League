@@ -1,4 +1,4 @@
-package com.example.enduser.overwatchleague;
+package com.example.enduser.overwatchleague.Database;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
