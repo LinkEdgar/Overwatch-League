@@ -1,6 +1,7 @@
 package com.example.enduser.overwatchleague
 
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +11,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), SubscribeContract.View {
+class MainActivity : AppCompatActivity(), SubscribeContract.View, SubscribedAdapter.OnClickCallback {
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mSubscribedAdapter: SubscribedAdapter
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
         switchButton.setOnClickListener{switchActivity()}
         mRecyclerView = rv_user_subs
         mData = ArrayList()
-        mSubscribedAdapter = SubscribedAdapter(this,mData)
+        mSubscribedAdapter = SubscribedAdapter(this,mData, this)
         mLayoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = mSubscribedAdapter
         mRecyclerView.layoutManager = mLayoutManager
@@ -75,6 +76,14 @@ class MainActivity : AppCompatActivity(), SubscribeContract.View {
         val switch = Intent(this, QueryActivity::class.java)
         switch.putExtra("set",mTeamHashSet)
         startActivity(switch)
+    }
+
+    override fun onClick(url: String?) {
+        val webpage: Uri = Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, webpage)
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
 }

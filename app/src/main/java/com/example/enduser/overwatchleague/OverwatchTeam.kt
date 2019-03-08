@@ -6,13 +6,16 @@ import android.os.Parcelable
 data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var teamPrimaryColor: String? = null, var teamSecondaryColor: String? = null, var isSubbed: Boolean = false,
                          var teamId:String? = null, var matchWin: String? = null, var matchLoss:String? = null, var matchDraw:String? = null, var gameWin:String? = null
                          , var gameLoss:String? = null, var gameTie:String? = null
-                         , var accountFacebook: String? =null, var accountInstagram: String? = null): Parcelable{
+                         , var accountFacebook: String? =null, var accountInstagram: String? = null
+                         ,var accountTwitter: String? = null, var accountYoutube: String? = null): Parcelable{
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readByte() != 0.toByte(),
+            parcel.readString(),
+            parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
@@ -39,6 +42,8 @@ data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var
         parcel.writeString(gameTie)
         parcel.writeString(accountFacebook)
         parcel.writeString(accountInstagram)
+        parcel.writeString(accountTwitter)
+        parcel.writeString(accountYoutube)
     }
 
     override fun describeContents(): Int {
@@ -54,4 +59,5 @@ data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var
             return arrayOfNulls(size)
         }
     }
+
 }

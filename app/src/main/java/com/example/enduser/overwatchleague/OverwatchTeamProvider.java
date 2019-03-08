@@ -75,7 +75,7 @@ public class OverwatchTeamProvider extends ContentProvider{
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         SQLiteDatabase database = mHelper.getWritableDatabase();
-        int count = 0;
+        int count;
         switch(sUriMatcher.match(uri)){
             case OV_TEAM_SPECIFIC:
                 String name = uri.getLastPathSegment();

@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#000"
+        android:name="facebook-4"
+        android:pathData="m15 8c0 0 -0.916 0 -1.35 0c-0.538 0 -0.65 0.221 -0.65 0.778c0 0.464 0 1.222 0 1.222h2l-0.209 2h-1.791v7h-3v-7h-2v-2h2c0 0 0 -0.767 0 -2.308c0 -1.769 0.931 -2.692 3.029 -2.692c0.343 0 1.971 0 1.971 0v3zm-3 -8c-6.627 0 -12 5.373 -12 12c0 6.627 5.373 12 12 12c6.627 0 12 -5.373 12 -12c0 -6.627 -5.373 -12 -12 -12z" />
+</vector>

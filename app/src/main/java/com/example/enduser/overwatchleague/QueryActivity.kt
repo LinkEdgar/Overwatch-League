@@ -55,7 +55,6 @@ class QueryActivity : AppCompatActivity(), QueryContract.View, SearchView.OnQuer
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
-        Log.e("submit query", "--> $query")
         mPresenter.onSubmitQuery(query.toLowerCase().trim())
         return true
     }

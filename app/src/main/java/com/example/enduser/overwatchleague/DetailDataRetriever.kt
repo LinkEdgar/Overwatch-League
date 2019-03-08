@@ -60,31 +60,23 @@ class DetailDataRetriever(var callback: OnResponseCallback, var team: OverwatchT
         for (x in 0..(accountsRoot.length() - 1)) {
             val accountChild = accountsRoot.getJSONObject(x)
             val accountType = accountChild.getString("accountType")
-            if(isValidAccountsForTeam(accountType)){
-                setAccount(accountType, accountChild.getString("value"))
-            }
+            setAccount(accountType, accountChild.getString("value"))
         }
-    }
-
-    //returns true if the account is twitter or instagram
-    private fun isValidAccountsForTeam(accountType: String): Boolean {
-        if (accountType == facebook_account || accountType == instagram_account) {
-            return true
-        }
-        return false
     }
 
     private fun setAccount(accountType: String, value: String){
-        if(accountType == facebook_account){
-            team.accountFacebook = value
-        }
-        if(accountType == instagram_account){
-            team.accountInstagram = value
+        when(accountType){
+            facebook_account -> {team.accountFacebook = value}
+            twitter_account -> {team.accountTwitter= value}
+            youtube_account -> {team.accountYoutube = value}
+            instagram_account -> {team.accountInstagram = value}
         }
     }
 
     companion object {
         const val facebook_account = "FACEBOOK"
         const val instagram_account = "INSTAGRAM"
+        const val youtube_account = "YOUTUBE_CHANNEL"
+        const val twitter_account = "TWITTER"
     }
 }

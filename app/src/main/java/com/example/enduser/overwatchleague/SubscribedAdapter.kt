@@ -10,7 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
-class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>): RecyclerView.Adapter<SubscribedAdapter.SubscribeViewHolder>(){
+class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>, var mCallback: OnClickCallback): RecyclerView.Adapter<SubscribedAdapter.SubscribeViewHolder>(){
+
+    interface OnClickCallback{
+        fun onClick(url: String?)
+    }
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SubscribeViewHolder {
         return SubscribeViewHolder(LayoutInflater.from(context).inflate(R.layout.team_container, parent, false))
     }
@@ -35,6 +39,11 @@ class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>
         holder.mTeamGameWin.text = team.gameWin
         holder.mTeamGameLoss.text = team.gameLoss
         holder.mTeamGameTie.text = team.gameTie
+        holder.twitter.setOnClickListener{mCallback.onClick(team.accountTwitter)}
+        holder.facebook.setOnClickListener{mCallback.onClick(team.accountFacebook)}
+        holder.youtube.setOnClickListener{mCallback.onClick(team.accountYoutube)}
+        holder.instagram.setOnClickListener{mCallback.onClick(team.accountInstagram)}
+
 
     }
 
@@ -47,5 +56,9 @@ class SubscribedAdapter(var context: Context,var mData: ArrayList<OverwatchTeam>
         val mTeamGameWin: TextView = itemView.findViewById(R.id.tv_game_wins)
         val mTeamGameLoss: TextView = itemView.findViewById(R.id.tv_game_loss)
         val mTeamGameTie: TextView = itemView.findViewById(R.id.tv_game_tie)
+        val twitter: ImageView =itemView.findViewById(R.id.twitter)
+        val facebook: ImageView =itemView.findViewById(R.id.facebook)
+        val youtube: ImageView =itemView.findViewById(R.id.youtube)
+        val instagram: ImageView =itemView.findViewById(R.id.instagram)
     }
 }

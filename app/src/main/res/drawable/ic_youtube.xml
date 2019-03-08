@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#000"
+        android:name="youtube-9"
+        android:pathData="m10 9.658 4.917 2.338 -4.917 2.346v-4.685zm6.441 7.234c-2.102 0.144 -6.784 0.144 -8.883 0c-2.276 -0.156 -2.541 -1.27 -2.558 -4.892c0.017 -3.629 0.285 -4.736 2.558 -4.892c2.099 -0.144 6.782 -0.144 8.883 0c2.276 0.156 2.541 1.27 2.559 4.892c-0.018 3.629 -0.285 4.736 -2.559 4.892zm-4.441 -16.892c-6.627 0 -12 5.373 -12 12c0 6.627 5.373 12 12 12c6.627 0 12 -5.373 12 -12c0 -6.627 -5.373 -12 -12 -12z" />
+</vector>

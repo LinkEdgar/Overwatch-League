@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/team_image_height" />
         <TextView
+            android:textStyle="bold"
             android:textSize="@dimen/text_size_title"
             android:id="@+id/tv_team_name"
             android:layout_centerInParent="true"
@@ -132,10 +133,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <View
-            android:background="@color/colorPrimaryDark"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_margin="@dimen/horizontal_margin"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/instagram"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_instagram"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
+
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_margin="@dimen/horizontal_margin"
+            android:layout_toRightOf="@id/instagram"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_facebook"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
+
+        <ImageView
+            android:layout_margin="@dimen/horizontal_margin"
+            android:src="@drawable/ic_youtube"
+            android:layout_toRightOf="@+id/facebook"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/youtube"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
+        <ImageView
+            android:layout_margin="@dimen/horizontal_margin"
+            android:src="@drawable/ic_twitter"
+            android:layout_toRightOf="@+id/youtube"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/twitter"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
+        </LinearLayout>
+
+
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

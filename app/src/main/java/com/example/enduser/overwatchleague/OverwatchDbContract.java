@@ -24,6 +24,7 @@ public class OverwatchDbContract {
         public static final String COLUMN_NAME_HOME_LOCATION = "homeLocation";
         public static final String COLUMN_NAME_INSTAGRAM = "instagram";
         public static final String COLUMN_NAME_FACEBOOK = "facebook";
+        public static final String COLUMN_NAME_TWITTER = "twitter";
         public static final String COLUMN_NAME_YOUTUBE = "youtube";
         public static final String COLUMN_NAME_ICON = "icon";
         public static final String COLUMN_NAME_PRIMARY_COLOR = "primary_color";
