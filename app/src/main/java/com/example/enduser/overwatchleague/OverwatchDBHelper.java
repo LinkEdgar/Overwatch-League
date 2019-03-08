@@ -22,7 +22,7 @@ public class OverwatchDBHelper extends SQLiteOpenHelper{
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_HOME_LOCATION + " TEXT,"+
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_ICON + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_TEAM_NAME + " TEXT," +
-                            OverwatchDbContract.TeamEntry.COLUMN_NAME_YOUTUBE + " TEXT," +
+                            OverwatchDbContract.TeamEntry.COLUMN_NAME_INSTAGRAM + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_PRIMARY_COLOR + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_SECONDARY_COLOR + " TEXT," +
                             OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_WIN + " TEXT," +

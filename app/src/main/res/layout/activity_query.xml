@@ -7,19 +7,20 @@
     tools:context="com.example.enduser.reachmobiapp.com.example.enduser.overwatchleague.QueryActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@+id/query_cardview"
+        android:layout_above="@+id/query_cardview"
         android:id="@+id/query_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <android.support.v7.widget.CardView
+        android:layout_alignParentBottom="true"
         app:cardBackgroundColor="@color/colorAccent"
         android:id="@+id/query_cardview"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.SearchView
+            android:layout_margin="@dimen/small_margin"
             app:iconifiedByDefault="false"
             app:queryHint="@string/query_hint"
             android:elevation="8dp"

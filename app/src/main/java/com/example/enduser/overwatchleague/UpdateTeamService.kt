@@ -29,6 +29,8 @@ class UpdateTeamService: IntentService("UpdateDb"), DetailDataRetriever.OnRespon
         contentValues.put(OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_DRAW, team.matchDraw)
         contentValues.put(OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_LOSS, team.matchLoss)
         contentValues.put(OverwatchDbContract.TeamEntry.COLUMN_NAME_MATCH_WIN, team.matchWin)
+        contentValues.put(OverwatchDbContract.TeamEntry.COLUMN_NAME_FACEBOOK, team.accountFacebook)
+        contentValues.put(OverwatchDbContract.TeamEntry.COLUMN_NAME_INSTAGRAM, team.accountInstagram)
         return contentValues
 
 

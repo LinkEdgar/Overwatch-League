@@ -4,9 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var teamPrimaryColor: String? = null, var teamSecondaryColor: String? = null, var isSubbed: Boolean = false,
-                    var teamId:String? = null, var matchWin: String? = null, var matchLoss:String? = null, var matchDraw:String? = null, var gameWin:String? = null
-                    , var gameLoss:String? = null, var gameTie:String? = null): Parcelable{
-
+                         var teamId:String? = null, var matchWin: String? = null, var matchLoss:String? = null, var matchDraw:String? = null, var gameWin:String? = null
+                         , var gameLoss:String? = null, var gameTie:String? = null
+                         , var accountFacebook: String? =null, var accountInstagram: String? = null): Parcelable{
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
@@ -19,7 +19,10 @@ data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readString())
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(teamName)
@@ -34,6 +37,8 @@ data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var
         parcel.writeString(gameWin)
         parcel.writeString(gameLoss)
         parcel.writeString(gameTie)
+        parcel.writeString(accountFacebook)
+        parcel.writeString(accountInstagram)
     }
 
     override fun describeContents(): Int {
@@ -49,5 +54,4 @@ data class OverwatchTeam(var teamName: String, var teamIcon: String? = null, var
             return arrayOfNulls(size)
         }
     }
-
 }
