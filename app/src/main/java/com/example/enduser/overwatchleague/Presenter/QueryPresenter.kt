@@ -44,14 +44,6 @@ class QueryPresenter(var context:Context, var mView: QueryContract.View, var int
                     Log.e("Not a match", "")
             }
         }
-
-        for(x in mCacheData.iterator()){
-            val teamNameLowerCase = x.teamName.toLowerCase()
-            if(teamNameLowerCase.startsWith(query) || teamNameLowerCase.endsWith(query)){
-                mView.updateUi(x)
-            }else
-                Log.e("Not a match", "")
-        }
     }
 
     override fun onDataRetrieved(data: ArrayList<OverwatchTeam>) {
